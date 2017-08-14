@@ -2,7 +2,7 @@
 
 ## Configurar el ambiente de trabajo
 
-* Dirígete a [1] y descarga el instalador de Nodejs según sea tu sistema operativo.
+* Dirígete al [sitio][1] y descarga el instalador de Nodejs según sea tu sistema operativo.
 * Abre una terminal y ejecuta el comando `node --version`. Debería mostrar la versión
   de Nodejs. De no ser así, configura el directorio `bin` ubicado en la carpeta de
   instalación de Nodejs como variable de entorno. Reinicia la terminal.
@@ -16,7 +16,7 @@
 * Ejecuta el comando `npm install -g nodemon` para instalar un demonio que actualizará
   el servidor en tiempo de ejecución cuando se realice un cambio en los archivos.
 * Ejecuta el comando `npm start` para iniciar el servidor.
-* Si no hay ningún error, dirígete a [http://localhost:8080/] para ver el index de
+* Si no hay ningún error, dirígete a [http://localhost:8080/](http://localhost:8080/) para ver el index de
   la aplicación.
 
 
