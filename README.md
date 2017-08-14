@@ -12,12 +12,17 @@
   usa la terminal para moverte hasta donde está el proyecto clonado. Si no especificaste
   la ubicación, debería estar en `Documents/GitHub`.
 * Ejecuta el comando `npm install` para instalar las dependencias definidas en el
-  archivo *package.json*.
+  archivo **package.json**.
 * Ejecuta el comando `npm install -g nodemon` para instalar un demonio que actualizará
   el servidor en tiempo de ejecución cuando se realice un cambio en los archivos.
 * Ejecuta el comando `npm start` para iniciar el servidor.
 * Si no hay ningún error, dirígete a [http://localhost:8080/](http://localhost:8080/) para ver el index de
   la aplicación.
 
+## Diagrama de clases del sistema
+
+![alt text][classDiagram]
+
 
 [1]: https://nodejs.org/en/download/
+[classDiagram]: ./repoImages/classDiagram.png
