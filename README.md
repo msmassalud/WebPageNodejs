@@ -21,8 +21,8 @@
 
 ## Diagrama de clases del sistema
 
-![alt text][classDiagram]
+![alt text][ClassDiagram]
 
 
 [1]: https://nodejs.org/en/download/
-[classDiagram]: ./repoImages/classDiagram.png
+[ClassDiagram]: ./repoImages/ClassDiagram.png
