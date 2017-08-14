@@ -1,0 +1,25 @@
+<html lang="en">
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body class="container">
+  <header>
+    <% include ../partials/header %>
+  </header>
+  <main>
+    <%for (var i = 0; i < locals.userList.length; i++) {%>
+      <p>
+        <%= userList[i].name %> <br />
+      </p>
+      <% } %>
+  </main>
+</body>
+
+
+<footer>
+  <% include ../partials/footer %>
+</footer>
+
+</html>

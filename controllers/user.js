@@ -9,7 +9,7 @@ function getAllUsers(req, res) {
         throw err;
       }
       console.log(users);
-      res.render('index', {
+      res.render('pages/index', {
         userList: users
       });
     });

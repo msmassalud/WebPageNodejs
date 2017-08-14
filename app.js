@@ -28,5 +28,15 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get('/', userController.getAllUsers);
+app.get('/signup/:type', (req, res) =>{
+  var type = req.params.type;
+  console.log(`Type: ${type}`);
+  if(type == 'member'){
+    console.log("Rendering index");
+    res.render('pages/signupMember.ejs');
+  }else{
+    res.redirect('/');
+  }
+});
 
 module.exports = app
