@@ -28,15 +28,16 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get('/', userController.getAllUsers);
-app.get('/signup/:type', (req, res) =>{
-  var type = req.params.type;
-  console.log(`Type: ${type}`);
-  if(type == 'member'){
-    console.log("Rendering index");
-    res.render('pages/signupMember.ejs');
-  }else{
-    res.redirect('/');
-  }
+app.get('/signupMember', (req, res) =>{
+  res.status(200).render('pages/signupMember');
+});
+
+app.post('/signupMember', userController.insertMember)
+
+//Not Found
+app.use(function(req, res, next){
+  res.status(404);
+  res.render('pages/404', { url: req.url });
 });
 
 module.exports = app

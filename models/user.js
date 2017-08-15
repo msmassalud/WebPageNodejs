@@ -20,7 +20,14 @@ var userSchema = new mongoose.Schema({
                   enum : ['Masculino','Femenino'],
                   default : 'Masculino'},
   cellphone:     {type: String},
-  membership:   {type: Schema.Types.ObjectId, ref: 'Membership'}
+  //membership:   {type: Schema.Types.ObjectId, ref: 'Membership'}
+  membership : {
+    memberId :  {type: String},
+    startDate : {type: Date, default: Date.now, required: true },
+    expiringDate: {type: Date, require: true},
+    type :      {type: String,
+                  enum: ['A','B','C'], default: 'A'},
+  }
 });
 
 //Generar el hashSync
