@@ -32,8 +32,16 @@ app.get('/signupMember', (req, res) =>{
   res.status(200).render('pages/signupMember');
 });
 
-app.post('/signupMember', userController.insertMember)
+app.post('/signupMember', userController.insertMember);
 
+app.get('/findMembers', (req, res) =>{
+  res.status(200).render('pages/findMembers');
+});
+app.get('/getMembersByName', userController.getMembersByName);
+app.post('/loadProfile', userController.loadMemberProfile);
+app.get('/loadProfile', (req, res) =>{
+  res.status(403).render('pages/403');
+})
 //Not Found
 app.use(function(req, res, next){
   res.status(404);

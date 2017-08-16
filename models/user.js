@@ -28,7 +28,7 @@ var userSchema = new mongoose.Schema({
     type :      {type: String,
                   enum: ['A','B','C'], default: 'A'},
   }
-});
+}, { runSettersOnQuery: true });
 
 //Generar el hashSync
 userSchema.methods.generateHash = function(password){
