@@ -116,7 +116,7 @@ function signIn(req, res) {
           token: service.createToken(user)
         })
       }else{
-        res.status(200).send({
+        res.status(403).send({
           message: 'Contraseña incorrecta'
         })
       }
