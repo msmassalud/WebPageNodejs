@@ -3,12 +3,12 @@
   Module dependencies
 */
 
-var express = require('express')
-var bodyParser = require('body-parser')
-var app = express()
-var path = require('path')
-
-var userController = require('./controllers/user');
+const express = require('express')
+const bodyParser = require('body-parser')
+const app = express()
+const path = require('path')
+const auth = require('./middlewares/auth')
+const userController = require('./controllers/user');
 console.log(userController);
 //Establecemos la ruta de la carpeta de vistas
 app.set('views', __dirname + '/views');
@@ -31,8 +31,11 @@ app.get('/', userController.getAllUsers);
 app.get('/signupMember', (req, res) =>{
   res.status(200).render('pages/signupMember');
 });
-
 app.post('/signupMember', userController.insertMember);
+app.get('/signin', (req, res) =>{
+  res.status(200).render('pages/signin');
+});
+app.post('/signin', userController.signIn);
 
 app.get('/findMembers', (req, res) =>{
   res.status(200).render('pages/findMembers');
@@ -41,7 +44,11 @@ app.get('/getMembersByName', userController.getMembersByName);
 app.post('/loadProfile', userController.loadMemberProfile);
 app.get('/loadProfile', (req, res) =>{
   res.status(403).render('pages/403');
-})
+});
+
+app.get('/private', auth,(req, res)=>{
+  res.status(200).send({message: 'Tienes acceso.'});
+});
 //Not Found
 app.use(function(req, res, next){
   res.status(404);

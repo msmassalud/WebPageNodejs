@@ -1,6 +1,7 @@
 'use-strict'
 var User = require('../models/user');
 const expiringTime = 365; //days
+const service = require('../services/index')
 
 function getAllUsers(req, res) {
   User.find({},
@@ -97,9 +98,37 @@ function loadMemberProfile(req, res){
     });
 }
 
+function signIn(req, res) {
+  User.findOne({ email: req.body.email },
+    (err, user) =>{
+      if(err){
+        return res.status(500).send({message: err});
+      }
+
+      if(!user){
+        return res.status(404).send({message: 'No existe el usuario'});
+      }
+
+      if(user.validPassword(req.body.password)){
+        req.user = user;
+        res.status(200).send({
+          message: 'Te has loggeado correctamente',
+          token: service.createToken(user)
+        })
+      }else{
+        res.status(200).send({
+          message: 'Contraseña incorrecta'
+        })
+      }
+
+
+    });
+}
+
 module.exports = {
   getAllUsers,
   insertMember,
   getMembersByName,
-  loadMemberProfile
+  loadMemberProfile,
+  signIn
 }
